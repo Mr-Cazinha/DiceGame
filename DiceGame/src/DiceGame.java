@@ -6,31 +6,23 @@ public class DiceGame {
 	public static void main(String[] args) {
 		int die1;
 		int die2;
-		String[] playerChoices;
 		die1 = roll();
 		die2 = roll();
 		String choice;
 		choice = getInput("Do you want to play?\nYes\nNo");
 		choice = choice.toLowerCase();
-		int count = 0;
-		String playerCount = getInput("How many players are there?");
-		count = Integer.parseInt(playerCount);
-		playerChoices = new String[count];
 		while(choice.equals("yes")) {
+
+			choice = getInput("[0] Even\n[1] Odd");
 			
-			for(int c= 0; c < count; c++) {
-			playerChoices[c] = getInput("Player "+(c+1)+": [0] Even\n[1] Odd");
-			
-			}
 			System.out.println("Die 1: "+die1+"\nDie 2: "+die2);
-			//Start a new loop here.
-			for(int c=0; c<count;c++) {
-				if(didIWin(die1,die2,playerChoices[c]))
+
+				if(didIWin(die1,die2,choice))
 				{
-					System.out.println("Player "+(c+1)+" wins!");
+					System.out.println("You win!");
 				}else
 				{
-					System.out.println("Player "+(c+1)+" loses!");
+					System.out.println("You lose!");
 				}
 			}
 			
